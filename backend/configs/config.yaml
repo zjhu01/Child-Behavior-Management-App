@@ -1,0 +1,97 @@
+# 应用配置
+app:
+  name: "Child Behavior Management API"
+  version: "1.0.0"
+  port: 8080
+  mode: "debug" # debug, release, test
+
+# MariaDB数据库配置
+database:
+  host: "localhost"
+  port: 3306
+  username: "root"
+  password: "root"
+  dbname: "child_behavior"
+  charset: "utf8mb4"
+  parse_time: true
+  loc: "Local"
+  max_idle_conns: 10
+  max_open_conns: 100
+  conn_max_lifetime: 3600 # 秒
+
+# JWT配置
+jwt:
+  secret: "your-secret-key-change-this-in-production"
+  expires_hours: 24 # JWT过期时间（小时）
+  issuer: "child-behavior-app"
+
+# 文件上传配置
+upload:
+  max_file_size: 5242880 # 5MB
+  max_avatar_size: 2097152 # 2MB
+  allowed_types:
+    - "image/jpeg"
+    - "image/jpg"
+    - "image/png"
+    - "image/gif"
+    - "image/webp"
+  upload_dir: "uploads"
+  avatar_dir: "uploads/avatars"
+
+# CORS配置
+cors:
+  allowed_origins:
+    - "http://localhost:3000"
+    - "http://localhost:5173"
+    - "http://127.0.0.1:3000"
+    - "http://127.0.0.1:5173"
+  allowed_methods:
+    - "GET"
+    - "POST"
+    - "PUT"
+    - "DELETE"
+    - "OPTIONS"
+  allowed_headers:
+    - "Origin"
+    - "Content-Type"
+    - "Accept"
+    - "Authorization"
+    - "X-Requested-With"
+  allow_credentials: true
+  max_age: 86400 # 24小时
+
+# 日志配置
+log:
+  level: "info" # debug, info, warn, error
+  format: "json" # json, text
+  output: "stdout" # stdout, file
+  file_path: "logs/app.log"
+  max_size: 100 # MB
+  max_backups: 5
+  max_age: 30 # 天
+  compress: true
+
+# 缓存配置
+cache:
+  default_expiration: 300 # 5分钟
+  cleanup_interval: 600 # 10分钟
+
+# 安全配置
+security:
+  bcrypt_cost: 12
+  rate_limit:
+    enabled: true
+    requests_per_minute: 60
+    burst: 10
+
+# 开发环境配置
+development:
+  auto_migrate: true
+  seed_data: false
+  debug_sql: false
+
+# 生产环境配置
+production:
+  auto_migrate: false
+  seed_data: false
+  debug_sql: false

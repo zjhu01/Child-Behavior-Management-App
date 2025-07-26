@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">yixue</string>
+    <string name="title_activity_main">yixue</string>
+    <string name="package_name">com.yixue.app</string>
+    <string name="custom_url_scheme">com.yixue.app</string>
+</resources>
